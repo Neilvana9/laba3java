@@ -42,7 +42,7 @@
 
 
 Запуск контейнера:
-docker run -d --name library-postgres -e POSTGRES_DB=library -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -p 5432:5432 postgres:15
+docker run -d --name library-postgres -e POSTGRES_DB=library -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -p 5432:5432 postgres:13
 
 Проверка:
 docker ps
