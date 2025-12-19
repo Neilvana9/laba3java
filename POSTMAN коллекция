@@ -1,0 +1,1075 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "Библиотечная система API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12345678"
+	},
+	"item": [
+		{
+			"name": "Авторы",
+			"item": [
+				{
+					"name": "Создать автора",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Лев Толстой\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/authors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить всех авторов",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/authors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить автора по ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/authors/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновить автора",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Лев Николаевич Толстой\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/authors/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить автора",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/authors/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Читатели",
+			"item": [
+				{
+					"name": "Создать читателя",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Иван Петров\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/readers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"readers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить всех читателей",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/readers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"readers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить читателя по ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/readers/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"readers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновить читателя",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Иван Иванович Петров\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/readers/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"readers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить читателя",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/readers/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"readers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить книги на руках у читателя",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/readers/1/borrowed-books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"readers",
+								"1",
+								"borrowed-books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Книги",
+			"item": [
+				{
+					"name": "Создать книгу",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"authorIds\": [1],\n    \"title\": \"Война и мир\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все книги",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить книгу по ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновить книгу",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"authorIds\": [1],\n    \"title\": \"Война и Мир\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/books/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить книгу",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Выдать книгу читателю",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookId\": 1,\n    \"readerId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/books/borrow",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"borrow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вернуть книгу",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/books/1/return",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"1",
+								"return"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить книги по автору",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books/author/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"author",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить выданные книги",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books/borrowed",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"borrowed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить самые популярные книги",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books/most-borrowed?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books",
+								"most-borrowed"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Штрафы",
+			"item": [
+				{
+					"name": "Создать штраф",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"readerId\": 1,\n    \"bookId\": 1,\n    \"amount\": 500.0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/fines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить все штрафы",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить штраф по ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fines/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fines",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновить штраф",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"readerId\": 1,\n    \"bookId\": 1,\n    \"amount\": 600.0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/fines/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fines",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить штраф",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fines/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fines",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Отметить штраф как оплаченный",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/fines/1/pay",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fines",
+								"1",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить штрафы читателя",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fines/reader/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fines",
+								"reader",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить неоплаченные штрафы читателя",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fines/reader/1/unpaid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fines",
+								"reader",
+								"1",
+								"unpaid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Оплатить все штрафы читателя",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/fines/reader/1/pay-all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fines",
+								"reader",
+								"1",
+								"pay-all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Отзывы",
+			"item": [
+				{
+					"name": "Добавить отзыв о книге",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/book?readerId=1&bookId=1&rating=5&comment=Отличная книга!",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								"book"
+							],
+							"query": [
+								{
+									"key": "readerId",
+									"value": "1"
+								},
+								{
+									"key": "bookId",
+									"value": "1"
+								},
+								{
+									"key": "rating",
+									"value": "5"
+								},
+								{
+									"key": "comment",
+									"value": "Отличная книга!"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавить отзыв об авторе",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/author?readerId=1&authorId=1&rating=4&comment=Люблю произведения этого автора",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								"author"
+							],
+							"query": [
+								{
+									"key": "readerId",
+									"value": "1"
+								},
+								{
+									"key": "authorId",
+									"value": "1"
+								},
+								{
+									"key": "rating",
+									"value": "4"
+								},
+								{
+									"key": "comment",
+									"value": "Люблю произведения этого автора"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить отзывы о книге",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/book/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								"book",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить отзывы об авторе",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/author/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								"author",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить отзывы читателя",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/reader/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								"reader",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить лучшие отзывы",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/top?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								"top"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Подтвердить отзыв",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reviews/1/verify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								"1",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Рекомендации и аналитика",
+			"item": [
+				{
+					"name": "Получить популярные книги",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recommendations/popular?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recommendations",
+								"popular"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить высокооцененные книги",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recommendations/highly-rated?limit=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recommendations",
+								"highly-rated"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить аналитику библиотеки",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recommendations/analytics",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recommendations",
+								"analytics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Тестовые сценарии",
+			"item": [
+				{
+					"name": "Полный цикл работы с книгой",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// 1. Создать автора",
+									"pm.sendRequest({",
+									"    url: pm.variables.get('baseUrl') + '/authors',",
+									"    method: 'POST',",
+									"    header: [{ key: 'Content-Type', value: 'application/json' }],",
+									"    body: { mode: 'raw', raw: JSON.stringify({ name: 'Лев Толстой' }) }",
+									"}, function (err, response) {",
+									"    pm.test('Автор создан', function () {",
+									"        pm.expect(response.code).to.be.oneOf([200, 201]);",
+									"    });",
+									"    const authorId = response.json().id;",
+									"",
+									"    // 2. Создать читателя",
+									"    pm.sendRequest({",
+									"        url: pm.variables.get('baseUrl') + '/readers',",
+									"        method: 'POST',",
+									"        header: [{ key: 'Content-Type', value: 'application/json' }],",
+									"        body: { mode: 'raw', raw: JSON.stringify({ name: 'Иван Петров' }) }",
+									"    }, function (err, response) {",
+									"        pm.test('Читатель создан', function () {",
+									"            pm.expect(response.code).to.be.oneOf([200, 201]);",
+									"        });",
+									"        const readerId = response.json().id;",
+									"",
+									"        // 3. Создать книгу",
+									"        pm.sendRequest({",
+									"            url: pm.variables.get('baseUrl') + '/books',",
+									"            method: 'POST',",
+									"            header: [{ key: 'Content-Type', value: 'application/json' }],",
+									"            body: { mode: 'raw', raw: JSON.stringify({ authorIds: [authorId], title: 'Война и мир' }) }",
+									"        }, function (err, response) {",
+									"            pm.test('Книга создана', function () {",
+									"                pm.expect(response.code).to.be.oneOf([200, 201]);",
+									"            });",
+									"            const bookId = response.json().id;",
+									"",
+									"            // 4. Выдать книгу читателю",
+									"            pm.sendRequest({",
+									"                url: pm.variables.get('baseUrl') + '/books/borrow',",
+									"                method: 'POST',",
+									"                header: [{ key: 'Content-Type', value: 'application/json' }],",
+									"                body: { mode: 'raw', raw: JSON.stringify({ bookId, readerId }) }",
+									"            }, function (err, response) {",
+									"                pm.test('Книга выдана', function () {",
+									"                    pm.expect(response.code).to.be.oneOf([200, 201]);",
+									"                });",
+									"",
+									"                // 5. Добавить отзыв о книге",
+									"                pm.sendRequest({",
+									"                    url: pm.variables.get('baseUrl') + '/reviews/book',",
+									"                    method: 'POST',",
+									"                    header: [{ key: 'Content-Type', value: 'application/json' }],",
+									"                    body: { mode: 'raw', raw: JSON.stringify({ readerId, bookId, rating: 5, comment: 'Отличная книга!' }) }",
+									"                }, function (err, response) {",
+									"                    pm.test('Отзыв о книге добавлен', function () {",
+									"                        pm.expect(response.code).to.be.oneOf([200, 201]);",
+									"                    });",
+									"",
+									"                    // 6. Вернуть книгу",
+									"                    pm.sendRequest({",
+									"                        url: pm.variables.get('baseUrl') + '/books/' + bookId + '/return',",
+									"                        method: 'POST',",
+									"                        header: [{ key: 'Content-Type', value: 'application/json' }],",
+									"                        body: { mode: 'raw', raw: '{}' }",
+									"                    }, function (err, response) {",
+									"                        pm.test('Книга возвращена', function () {",
+									"                            pm.expect(response.code).to.be.oneOf([200, 201]);",
+									"                        });",
+									"",
+									"                        // 7. Получить аналитику",
+									"                        pm.sendRequest({",
+									"                            url: pm.variables.get('baseUrl') + '/recommendations/analytics',",
+									"                            method: 'GET'",
+									"                        }, function (err, response) {",
+									"                            pm.test('Аналитика получена', function () {",
+									"                                pm.expect(response.code).to.be.oneOf([200]);",
+									"                                console.log('Сценарий успешно выполнен!');",
+									"                            });",
+									"                        });",
+									"                    });",
+									"                });",
+									"            });",
+									"        });",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
